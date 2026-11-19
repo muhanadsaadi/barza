@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>برزة | Barza — خلّ محلك يبرز</title>
+<meta name="description" content="برزة: نجهّز صفحة محلك على خرائط Google، واتساب بزنس، ومنيو QR بالعربي والإنجليزي. تصميم تجريبي مجاني. الخوض، السيب – مسقط.">
+<meta name="theme-color" content="#0F5E5A">
+<link rel="icon" type="image/png" href="barza-logo-640.png">
+<meta property="og:title" content="برزة | Barza">
+<meta property="og:image" content="barza-logo-640.png">
+<style>
+:root{--teal:#0F5E5A;--teal-d:#0a4542;--saf:#E8A33D;--sand:#F6EFE4;--ink:#1E2A2A;--mut:#5b6b6a;--line:#e6dccb;--wa:#25D366;--r:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Tajawal","IBM Plex Sans Arabic","Segoe UI",Tahoma,system-ui,-apple-system,sans-serif;color:var(--ink);background:#fff;line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
+html[lang=en] body{font-family:"Poppins","Inter","Segoe UI",system-ui,-apple-system,sans-serif}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+section{padding:56px 0}
+h1,h2,h3{line-height:1.25}
+h2{font-size:1.6rem;margin-bottom:8px}
+.lead{color:var(--mut);margin-bottom:28px}
+.draft{background:#fff4e0;color:#8a5a00;text-align:center;font-size:.8rem;padding:6px 12px}
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1.15rem;color:var(--teal)}
+.brand small{font-weight:600;color:var(--saf);letter-spacing:.15em;font-size:.7rem}
+.lang{border:1.5px solid var(--teal);background:#fff;color:var(--teal);border-radius:999px;padding:6px 14px;font:inherit;font-weight:700;font-size:.85rem;cursor:pointer}
+.lang:focus-visible,.btn:focus-visible{outline:3px solid var(--saf);outline-offset:2px}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:700;border-radius:999px;padding:14px 22px;transition:transform .15s ease,box-shadow .15s ease}
+.btn:active{transform:scale(.98)}
+.btn-wa{background:var(--wa);color:#073b1e;box-shadow:0 6px 18px rgba(37,211,102,.35)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.6);color:#fff}
+.btn svg{width:20px;height:20px;flex:none}
+/* hero */
+.hero{background:radial-gradient(1200px 400px at 80% -10%,#1b7a74 0,transparent 60%),var(--teal);color:#fff;padding:56px 0 64px}
+.pill{display:inline-block;background:rgba(232,163,61,.18);color:#ffd590;border:1px solid rgba(232,163,61,.45);border-radius:999px;padding:4px 12px;font-size:.85rem;margin-bottom:16px}
+.hero h1{font-size:2.1rem;margin-bottom:14px}
+.hero h1 em{font-style:normal;color:var(--saf)}
+.hero p{opacity:.92;max-width:560px;margin-bottom:26px;font-size:1.05rem}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.trust{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:26px;font-size:.88rem;opacity:.9}
+.trust span::before{content:"✓ ";color:var(--saf);font-weight:800}
+/* problem/solution */
+.ps{display:grid;gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.card h3{font-size:1.1rem;margin-bottom:10px}
+.card ul{list-style:none;display:grid;gap:8px}
+.prob li::before{content:"✕";color:#c2410c;font-weight:800;margin-inline-end:8px}
+.sol{background:var(--sand);border-color:transparent}
+.sol li::before{content:"✓";color:var(--teal);font-weight:800;margin-inline-end:8px}
+/* services */
+.svc{display:grid;gap:14px;margin-top:8px}
+.svc .card{display:flex;gap:14px;align-items:flex-start}
+.ico{width:44px;height:44px;border-radius:12px;background:var(--sand);display:grid;place-items:center;flex:none;font-size:1.3rem}
+.card p{color:var(--mut);font-size:.95rem}
+/* pricing */
+.bg-sand{background:var(--sand)}
+.starter{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;background:#fff;border:2px dashed var(--saf);border-radius:var(--r);padding:18px 20px;margin-bottom:18px}
+.starter b{color:var(--teal);font-size:1.1rem}
+.price-grid{display:grid;gap:16px}
+.plan{position:relative;background:#fff;border-radius:var(--r);padding:24px;border:1px solid var(--line);display:flex;flex-direction:column}
+.plan.pop{border:2px solid var(--teal);box-shadow:0 10px 30px rgba(15,94,90,.12)}
+.badge{position:absolute;top:-12px;inset-inline-start:20px;background:var(--saf);color:#3b2600;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+.plan h3{font-size:1.15rem}
+.amt{font-size:2.2rem;font-weight:800;color:var(--teal);margin:6px 0 2px}
+.amt small{font-size:.9rem;font-weight:600;color:var(--mut)}
+.plan ul{list-style:none;display:grid;gap:8px;margin:14px 0 20px;font-size:.95rem}
+.plan li::before{content:"✓";color:var(--teal);font-weight:800;margin-inline-end:8px}
+.plan .btn{margin-top:auto;background:var(--teal);color:#fff}
+.monthly{margin-top:22px;font-size:.92rem;color:var(--mut)}
+.monthly b{color:var(--ink)}
+/* before/after */
+.ba{display:grid;gap:16px}
+.ex-label{display:inline-block;background:#fff4e0;color:#8a5a00;font-size:.78rem;font-weight:700;border-radius:6px;padding:3px 8px;margin-bottom:14px}
+.gcard{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff;font-size:.92rem}
+.gcard .tag{font-size:.75rem;font-weight:800;letter-spacing:.06em;margin-bottom:10px;display:block}
+.before .tag{color:#c2410c}.after .tag{color:var(--teal)}
+.gname{font-weight:800;font-size:1.05rem}
+.stars{color:#f5a623;letter-spacing:1px}
+.meta{color:var(--mut);font-size:.85rem}
+.ph{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:12px 0}
+.ph i{aspect-ratio:1;border-radius:8px;background:#eee;display:block}
+.after .ph i:nth-child(1){background:linear-gradient(135deg,#0F5E5A,#3aa39b)}
+.after .ph i:nth-child(2){background:linear-gradient(135deg,#E8A33D,#f6d39a)}
+.after .ph i:nth-child(3){background:linear-gradient(135deg,#1E2A2A,#5b6b6a)}
+.after .ph i:nth-child(4){background:linear-gradient(135deg,#3aa39b,#E8A33D)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:.8rem}
+.after .chip{border-color:var(--teal);color:var(--teal);font-weight:700}
+.miss{color:#c2410c;font-size:.85rem}
+.reply{background:var(--sand);border-radius:10px;padding:8px 10px;margin-top:10px;font-size:.85rem}
+/* steps */
+.steps{display:grid;gap:14px;counter-reset:s}
+.step{display:flex;gap:14px;align-items:flex-start}
+.step::before{counter-increment:s;content:counter(s);width:40px;height:40px;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;display:grid;place-items:center;flex:none}
+.step h3{font-size:1.05rem}
+.step p{color:var(--mut);font-size:.95rem}
+/* faq */
+details{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff}
+details+details{margin-top:10px}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--teal);font-weight:800}
+details[open] summary::after{content:"–"}
+details p{color:var(--mut);margin-top:8px;font-size:.95rem}
+/* final */
+.final{background:var(--teal);color:#fff;text-align:center;border-radius:24px;padding:40px 22px}
+.final p{opacity:.9;margin:8px 0 22px}
+footer{padding:28px 0 100px;color:var(--mut);font-size:.85rem;text-align:center}
+/* floating WA */
+.fab{position:fixed;bottom:18px;inset-inline-end:18px;z-index:20;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.fab svg{width:30px;height:30px}
+@media (min-width:720px){
+  .hero h1{font-size:2.9rem}
+  .ps,.ba{grid-template-columns:1fr 1fr}
+  .svc{grid-template-columns:repeat(3,1fr)}
+  .svc .card{flex-direction:column}
+  .price-grid{grid-template-columns:repeat(3,1fr)}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .step{flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Barza">
+      <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0F5E5A"/><rect x="12" y="14" width="40" height="6" rx="3" fill="#fff"/><path d="M13 18h13v8a6.5 6.5 0 0 1-13 0z" fill="#E8A33D"/><path d="M26 18h12v8a6 6 0 0 1-12 0z" fill="#fff"/><path d="M38 18h13v8a6.5 6.5 0 0 1-13 0z" fill="#E8A33D"/><rect x="15" y="34" width="34" height="16" rx="3" fill="none" stroke="#fff" stroke-width="3"/><circle cx="32" cy="42" r="4" fill="#E8A33D"/></svg>
+      <span><span data-i18n="brand">برزة</span> <small>BARZA</small></span>
+    </a>
+    <button class="lang" id="langBtn" type="button" aria-label="Switch language">English</button>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="pill" data-i18n="pill">للمحلات الصغيرة في مسقط</span>
+    <h1 data-i18n-html="h1">خلّ محلك <em>يبرز</em> لما الزبون يدوّر عليك.</h1>
+    <p data-i18n="heroP">نجهّز صفحتك على خرائط Google، وواتساب بزنس فيه كتالوج وردود جاهزة، ومنيو أو صفحة روابط QR بالعربي والإنجليزي. نبدأ بتصميم تجريبي مجاني تشوف فيه الفرق.</p>
+    <div class="cta">
+      <a class="btn btn-wa wa" href="https://wa.me/96876632622" target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.7 5 2.1.9 2.9 1 4 .8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/></svg>
+        <span data-i18n="ctaWa">اطلب تصميمك التجريبي المجاني</span>
+      </a>
+      <a class="btn btn-ghost" href="#pricing" data-i18n="ctaPrice">شوف الباقات</a>
+    </div>
+    <div class="trust">
+      <span data-i18n="t1">عربي + English</span>
+      <span data-i18n="t2">تصميم تجريبي مجاني</span>
+      <span data-i18n="t3">من الخوض، السيب</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -> SOLUTION -->
+<section>
+  <div class="wrap">
+    <h2 data-i18n="psH">الزبون يقرر خلال ثواني</h2>
+    <p class="lead" data-i18n="psL">قبل لا يجيك، يفتح خرائط Google أو يرسل لك واتساب. اللي يشوفه هناك هو «واجهة» محلك.</p>
+    <div class="ps">
+      <div class="card prob">
+        <h3 data-i18n="pH">المشكلة</h3>
+        <ul>
+          <li data-i18n="p1">صفحة Google ناقصة: بدون أوقات، صور قليلة، أو عنوان رموز</li>
+          <li data-i18n="p2">مراجعات بدون رد، والتقييم ينزل</li>
+          <li data-i18n="p3">واتساب بدون ترحيب ولا كتالوج، والزبون يعيد نفس الأسئلة</li>
+          <li data-i18n="p4">منيو أو أسعار بلغة وحدة بس</li>
+        </ul>
+      </div>
+      <div class="card sol">
+        <h3 data-i18n="sH">الحل مع برزة</h3>
+        <ul>
+          <li data-i18n="s1">صفحة Google مكتملة ومرتبة بالعربي والإنجليزي</li>
+          <li data-i18n="s2">ردود محترمة على المراجعات وطريقة سهلة لطلب تقييمات جديدة</li>
+          <li data-i18n="s3">واتساب بزنس فيه ترحيب، رد غياب، ردود جاهزة وكتالوج</li>
+          <li data-i18n="s4">منيو / صفحة روابط QR ثنائية اللغة</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="svc" style="margin-top:22px">
+      <div class="card"><div class="ico">📍</div><div><h3 data-i18n="v1h">Google Business Profile</h3><p data-i18n="v1p">إعداد أو تحسين صفحتك على الخرائط: التصنيف، الأوقات، الصور، الوصف، والروابط.</p></div></div>
+      <div class="card"><div class="ico">💬</div><div><h3 data-i18n="v2h">واتساب بزنس</h3><p data-i18n="v2p">كتالوج لمنتجاتك أو خدماتك، رسالة ترحيب، رد غياب، وردود سريعة.</p></div></div>
+      <div class="card"><div class="ico">🔳</div><div><h3 data-i18n="v3h">منيو / روابط QR</h3><p data-i18n="v3p">صفحة خفيفة بالعربي والإنجليزي، وQR تحطه على الطاولة أو الكاونتر.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="bg-sand" id="pricing">
+  <div class="wrap">
+    <h2 data-i18n="prH">الباقات والأسعار</h2>
+    <p class="lead" data-i18n="prL">الأسعار بالريال العماني، تدفع مرة وحدة. كل الباقات تبدأ بتصميم تجريبي مجاني.</p>
+
+    <div class="starter">
+      <div>
+        <b data-i18n="stH">🔧 تعديل سريع (Starter fix)</b>
+        <div class="meta" data-i18n="stP">تصليح النواقص الأساسية في صفحتك على Google أو واتساب: الأوقات، التصنيف، الوصف، والصور.</div>
+      </div>
+      <div class="amt" style="font-size:1.6rem">25–35 <small data-i18n="omr">ر.ع</small></div>
+    </div>
+
+    <div class="price-grid">
+      <div class="plan">
+        <h3 data-i18n="b1">الأساسية</h3>
+        <div class="amt">60 <small data-i18n="omr">ر.ع</small></div>
+        <ul>
+          <li data-i18n="b1a">تجهيز وتحسين صفحة Google (عربي + English)</li>
+          <li data-i18n="b1b">إعداد واتساب بزنس: ترحيب، رد غياب، ردود جاهزة</li>
+          <li data-i18n="b1c">تصميم تجريبي مجاني قبل البدء</li>
+        </ul>
+        <a class="btn wa" href="https://wa.me/96876632622" target="_blank" rel="noopener" data-i18n="choose">اختار الباقة</a>
+      </div>
+      <div class="plan pop">
+        <span class="badge" data-i18n="popular">الأكثر طلباً</span>
+        <h3 data-i18n="b2">القياسية</h3>
+        <div class="amt">90 <small data-i18n="omr">ر.ع</small></div>
+        <ul>
+          <li data-i18n="b2a">كل اللي في الأساسية</li>
+          <li data-i18n="b2b">كتالوج واتساب لمنتجاتك أو خدماتك</li>
+          <li data-i18n="b2c">منيو / صفحة روابط QR ثنائية اللغة</li>
+        </ul>
+        <a class="btn wa" href="https://wa.me/96876632622" target="_blank" rel="noopener" data-i18n="choose">اختار الباقة</a>
+      </div>
+      <div class="plan">
+        <h3 data-i18n="b3">الاحترافية</h3>
+        <div class="amt">120 <small data-i18n="omr">ر.ع</small></div>
+        <ul>
+          <li data-i18n="b3a">كل اللي في القياسية</li>
+          <li data-i18n="b3b">ترتيب وتعديل صور المحل</li>
+          <li data-i18n="b3c">كرت QR لطلب التقييمات</li>
+          <li data-i18n="b3d">متابعة ودعم أول شهر</li>
+        </ul>
+        <a class="btn wa" href="https://wa.me/96876632622" target="_blank" rel="noopener" data-i18n="choose">اختار الباقة</a>
+      </div>
+    </div>
+
+    <p class="monthly" data-i18n-html="monthly"><b>خطط شهرية (اختيارية):</b> منشورات Google + الرد على المراجعات 25–35 ر.ع · ريلز 80–150 ر.ع · حملات واتساب 40–60 ر.ع</p>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section>
+  <div class="wrap">
+    <h2 data-i18n="baH">قبل وبعد</h2>
+    <span class="ex-label" data-i18n="exL">⚠️ مثال توضيحي لمحل وهمي، مب عميل حقيقي</span>
+    <div class="ba">
+      <div class="gcard before">
+        <span class="tag" data-i18n="bef">قبل</span>
+        <div class="gname">Lulu Car Wash</div>
+        <div class="meta"><span class="stars">★★★☆☆</span> 3.6 · 9 <span data-i18n="rev">مراجعات</span> · <span data-i18n="cat1">مغسلة سيارات</span></div>
+        <div class="ph"><i></i><i></i><i></i><i></i></div>
+        <div class="miss" data-i18n="m1">✕ ما في أوقات عمل · ✕ العنوان: J5QX+7R · ✕ ما في رقم واتساب</div>
+        <div class="reply" style="background:#fbeee6" data-i18n="m2">«سألت عن السعر وما أحد رد» ← بدون رد من المحل</div>
+      </div>
+      <div class="gcard after">
+        <span class="tag" data-i18n="aft">بعد</span>
+        <div class="gname">مغسلة اللؤلؤة | Lulu Car Wash</div>
+        <div class="meta"><span class="stars">★★★★☆</span> 4.5 · 41 <span data-i18n="rev">مراجعات</span> · <span data-i18n="cat2">غسيل وتلميع سيارات</span></div>
+        <div class="ph"><i></i><i></i><i></i><i></i></div>
+        <div class="chips">
+          <span class="chip" data-i18n="c1">🕓 مفتوح ٨ص – ١١م</span>
+          <span class="chip" data-i18n="c2">📍 الموالح الجنوبية</span>
+          <span class="chip" data-i18n="c3">💬 واتساب</span>
+          <span class="chip" data-i18n="c4">📋 المنيو والأسعار</span>
+        </div>
+        <div class="reply" data-i18n="m3">ردّ المالك: «شاكرين لك ملاحظتك، رتّبنا الرد على الواتساب ونرحب فيك مرة ثانية 🌟»</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="bg-sand">
+  <div class="wrap">
+    <h2 data-i18n="stepsH">كيف نشتغل؟ ٣ خطوات</h2>
+    <p class="lead" data-i18n="stepsL">بسيطة وواضحة، وبدون التزام قبل لا تشوف الشغل.</p>
+    <div class="steps">
+      <div class="step"><div><h3 data-i18n="st1h">ترسل لنا اسم محلك</h3><p data-i18n="st1p">على الواتساب: الاسم، المنطقة، وكم صورة لو تحب.</p></div></div>
+      <div class="step"><div><h3 data-i18n="st2h">نرسل لك تصميم تجريبي مجاني</h3><p data-i18n="st2p">خلال ٤٨ ساعة تشوف كيف بتصير صفحتك وواتسابك.</p></div></div>
+      <div class="step"><div><h3 data-i18n="st3h">نطبّق ونسلّم</h3><p data-i18n="st3p">إذا عجبك، نختار الباقة ونطبّق كل شي ونعلمك كيف تتابعه.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <h2 data-i18n="faqH">أسئلة متكررة</h2>
+    <p class="lead"></p>
+    <details><summary data-i18n="q1">التصميم التجريبي مجاني فعلاً؟</summary><p data-i18n="a1">إي نعم، مجاني وبدون أي التزام. إذا ما عجبك، ما عليك شي.</p></details>
+    <details><summary data-i18n="q2">لازم أعطيكم كلمة سر حساباتي؟</summary><p data-i18n="a2">لا. في Google نضاف كـ«مدير» على صفحتك وتقدر تشيلنا أي وقت. وفي واتساب نرتب الإعدادات معك على جهازك.</p></details>
+    <details><summary data-i18n="q3">كم ياخذ الشغل؟</summary><p data-i18n="a3">التصميم التجريبي خلال ٤٨ ساعة، والتطبيق عادة من ٢ إلى ٥ أيام حسب الباقة.</p></details>
+    <details><summary data-i18n="q4">تضمنون إني أطلع أول واحد في الخرائط؟</summary><p data-i18n="a4">ما أحد يقدر يضمن الترتيب. اللي نضمنه إن صفحتك تكون مكتملة وواضحة ومرتبة، وهذا اللي يخلي الزبون يختارك.</p></details>
+    <details><summary data-i18n="q5">أي نوع محلات تشتغلون معها؟</summary><p data-i18n="a5">الورش، المغاسل والتلميع، الكافيهات والمطاعم، الصالونات، والمحلات الجديدة في السيب ومسقط.</p></details>
+    <details><summary data-i18n="q6">كيف الدفع؟</summary><p data-i18n="a6">بعد ما توافق على التصميم التجريبي، تحويل بنكي أو نقداً، وتستلم فاتورة.</p></details>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="final">
+      <h2 data-i18n="fH">جاهز تخلّي محلك يبرز؟</h2>
+      <p data-i18n="fP">أرسل اسم محلك ومنطقته، ونرجع لك بتصميم تجريبي مجاني.</p>
+      <a class="btn btn-wa wa" href="https://wa.me/96876632622" target="_blank" rel="noopener"><span data-i18n="ctaWa2">راسلنا على واتساب</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap"><span data-i18n="foot">برزة | Barza · الخوض، السيب – مسقط</span> · © <span id="yr"></span></div>
+</footer>
+
+<a class="fab wa" href="https://wa.me/96876632622" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.7 5 2.1.9 2.9 1 4 .8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/></svg>
+</a>
+
+<script>
+/* ===== EDIT HERE ===== */
+const WA_NUMBER = "96876632622"; // +968 7663 2622
+/* ===================== */
+
+const EN = {
+  brand:"Barza", pill:"For small businesses in Muscat",
+  h1:'Make your shop <em>stand out</em> when customers look for you.',
+  heroP:"We set up your Google Maps profile, WhatsApp Business with a catalogue and quick replies, and a bilingual Arabic/English QR menu or link page. We start with a free mockup so you can see the difference first.",
+  ctaWa:"Get your free mockup", ctaPrice:"See packages", t1:"Arabic + English", t2:"Free mockup", t3:"Based in Al Khoudh, Seeb",
+  psH:"Customers decide in seconds", psL:"Before they visit, they open Google Maps or message you on WhatsApp. What they see there is your shop's front window.",
+  pH:"The problem", p1:"Incomplete Google profile: no hours, few photos, or a plus-code address", p2:"Unanswered reviews and a slipping rating", p3:"WhatsApp with no greeting or catalogue, so customers keep asking the same questions", p4:"Menu or prices in one language only",
+  sH:"The Barza fix", s1:"A complete, tidy Google profile in Arabic and English", s2:"Polite review replies and an easy way to ask for new reviews", s3:"WhatsApp Business with greeting, away message, quick replies and a catalogue", s4:"A bilingual QR menu or link page",
+  v1h:"Google Business Profile", v1p:"Set up or improve your Maps listing: category, hours, photos, description and links.",
+  v2h:"WhatsApp Business", v2p:"A catalogue for your products or services, greeting message, away message and quick replies.",
+  v3h:"QR menu / link page", v3p:"A light Arabic/English page with a QR code for your table or counter.",
+  prH:"Packages & pricing", prL:"Prices in Omani Rial, one-time. Every package starts with a free mockup.",
+  stH:"🔧 Starter fix", stP:"Fix the basics on your Google or WhatsApp profile: hours, category, description and photos.", omr:"OMR",
+  b1:"Basic", b1a:"Google profile setup & optimisation (Arabic + English)", b1b:"WhatsApp Business setup: greeting, away message, quick replies", b1c:"Free mockup before we start",
+  popular:"Most popular", b2:"Standard", b2a:"Everything in Basic", b2b:"WhatsApp catalogue for your products or services", b2c:"Bilingual QR menu / link page",
+  b3:"Pro", b3a:"Everything in Standard", b3b:"Shop photos sorted & edited", b3c:"QR card for collecting reviews", b3d:"First-month follow-up & support",
+  choose:"Choose package",
+  monthly:"<b>Monthly plans (optional):</b> Google posts + review replies OMR 25–35 · Reels OMR 80–150 · WhatsApp campaigns OMR 40–60",
+  baH:"Before & after", exL:"⚠️ Illustrative example of a made-up shop, not a real client", bef:"BEFORE", aft:"AFTER", rev:"reviews", cat1:"Car wash", cat2:"Car wash & polishing",
+  m1:"✕ No opening hours · ✕ Address: J5QX+7R · ✕ No WhatsApp number", m2:"“I asked about the price and nobody replied” ← no reply from the shop",
+  c1:"🕓 Open 8am – 11pm", c2:"📍 Al Mawaleh South", c3:"💬 WhatsApp", c4:"📋 Menu & prices",
+  m3:"Owner reply: “Thanks for the feedback. We've sorted our WhatsApp replies and hope to see you again 🌟”",
+  stepsH:"How it works: 3 steps", stepsL:"Simple and clear. No commitment before you see the work.",
+  st1h:"Send us your shop name", st1p:"On WhatsApp: name, area, and a few photos if you like.",
+  st2h:"Get a free mockup", st2p:"Within 48 hours, see how your profile and WhatsApp could look.",
+  st3h:"We apply & hand over", st3p:"If you like it, pick a package. We set everything up and show you how to keep it going.",
+  faqH:"FAQ",
+  q1:"Is the mockup really free?", a1:"Yes. Free, with no commitment. If you don't like it, you owe nothing.",
+  q2:"Do I have to share my passwords?", a2:"No. On Google you add us as a manager and can remove us any time. For WhatsApp we set things up with you on your phone.",
+  q3:"How long does it take?", a3:"The mockup within 48 hours; setup usually 2–5 days depending on the package.",
+  q4:"Can you guarantee I'll rank first on Maps?", a4:"No one can guarantee rankings. We make sure your profile is complete, clear and tidy, and that's what makes customers choose you.",
+  q5:"Which businesses do you work with?", a5:"Garages, car wash & detailing, cafés and restaurants, salons, and newly opened shops in Seeb and Muscat.",
+  q6:"How do I pay?", a6:"After you approve the mockup: bank transfer or cash, with an invoice.",
+  fH:"Ready to stand out?", fP:"Send your shop name and area, and we'll come back with a free mockup.", ctaWa2:"Message us on WhatsApp",
+  foot:"Barza | برزة · Al Khoudh, Seeb – Muscat"
+};
+const WA_TEXT = {ar:"السلام عليكم، أبغى تصميم تجريبي مجاني لمحلي 🙌\nاسم المحل:\nالمنطقة:", en:"Hi! I'd like a free mockup for my shop 🙌\nShop name:\nArea:"};
+
+const AR = {};
+document.querySelectorAll("[data-i18n]").forEach(el=>AR[el.dataset.i18n]=el.textContent);
+document.querySelectorAll("[data-i18n-html]").forEach(el=>AR[el.dataset.i18nHtml]=el.innerHTML);
+
+function setLang(l){
+  const d = l==="en" ? EN : AR;
+  document.documentElement.lang = l;
+  document.documentElement.dir = l==="en" ? "ltr" : "rtl";
+  document.querySelectorAll("[data-i18n]").forEach(el=>{ const v=d[el.dataset.i18n]; if(v!==undefined) el.textContent=v; });
+  document.querySelectorAll("[data-i18n-html]").forEach(el=>{ const v=d[el.dataset.i18nHtml]; if(v!==undefined) el.innerHTML=v; });
+  document.getElementById("langBtn").textContent = l==="en" ? "العربية" : "English";
+  document.title = l==="en" ? "Barza | برزة: Make your shop stand out" : "برزة | Barza: خلّ محلك يبرز";
+  const href = "https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(WA_TEXT[l]);
+  document.querySelectorAll("a.wa").forEach(a=>a.href=href);
+}
+let cur = "ar";
+document.getElementById("langBtn").addEventListener("click",()=>{ cur = cur==="ar"?"en":"ar"; setLang(cur); });
+document.getElementById("yr").textContent = new Date().getFullYear();
+setLang("ar");
+</script>
+</body>
+</html>
