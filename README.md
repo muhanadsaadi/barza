@@ -2,7 +2,7 @@
 
 Bilingual (Arabic / English) landing page for **Barza**, a local service in Seeb, Muscat that sets up small shops' digital storefronts: Google Business Profile, WhatsApp Business (catalogue, greeting, quick replies) and bilingual QR menus / link pages.
 
-**Live:** https://muhanadsaadi.github.io/barza/
+**Live:** https://barzaoman.com
 
 ## Tech
 - Plain HTML, CSS and vanilla JavaScript in a single `index.html` with no frameworks, build step or external requests
